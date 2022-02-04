@@ -3,9 +3,8 @@ This script enables Clockmics' RNA-seq analysis to be performed on the supercomp
 
 ## Requirement
 
-- Requirement
-- Requirement
-- Requirement
+- This script is made for use in the supercomputer of the National Institute of Genetics in Japan.
+- An account of NIG super computer is needed.
 
 ## Usage
 
@@ -14,14 +13,23 @@ This script enables Clockmics' RNA-seq analysis to be performed on the supercomp
 3. Usage
 
 ## Installation
-
+In the Gate way node,
 ```
-$ git clone https://github.com/KChigira/NIGsc-lasy-seq
-$ cd xx
-$ sh xx.sh
-$ 
+$ qlogin -l s_vmem=20G -l mem_req=20G
 ```
-
+Then, in login node,
+```
+$ cd ~
+$ singularity build rnaseq_pipeline.0.3.1.sif \
+              docker://dynacomkobe/biodocker_rnaseq_pipeline:ver.0.3.1
+```
+If you get a message,
+```
+INFO:    Build complete: rnaseq_pipeline.0.3.1.sif
+```
+and "rnaseq_pipeline.0.3.1.sif" is created in home directory.<br>
+<br>
+Next, You can get shell script "rnaseq-pipeline.sh" from this repository and upload to your home directory.<br>
 ## Test
 
 1. test
