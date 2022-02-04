@@ -28,12 +28,12 @@ Next, You can get shell script "rnaseq-pipeline.sh" from this repository and upl
 ## Usage
 1. make a working directory like below.
 ```
-$HOME/[working directory name]/data/org/[Your RNA-seq data(fastq gziped)]
+$HOME/[working directory name]/data/org/[RNA-seq data(fastq gziped)]
 ```
 2. Edit "rnaseq-pipeline.sh".(write working directory)
 ```
 export _JAVA_OPTIONS="-Xmx1g"
-singularity exec -B $HOME/<i>[working directory name]</i>C:/work \
+singularity exec -B $HOME/[working directory name]C:/work \
                  $HOME/rnaseq_pipeline.0.3.1.sif /singularity \
                  -m UMI -l 100 -u 10 -c 16 -r Osa
 ```
@@ -47,7 +47,7 @@ $ qsub rnaseq-pipeline.sh
 
 CHIGIRA Koki<br>
 mail to: kyoujin2009kutar(at_mark)gmail.com<br>
-\*at_mark have to be replaved to "@"
+\*at_mark have to be replaced to "@"
 
 ## License
 
