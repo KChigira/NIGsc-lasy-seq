@@ -6,12 +6,6 @@ This script enables Clockmics' RNA-seq analysis to be performed on the supercomp
 - This script is made for use in the supercomputer of the National Institute of Genetics in Japan.
 - An account of NIG super computer is needed.
 
-## Usage
-
-1. Usage
-2. Usage
-3. Usage
-
 ## Installation
 In the Gate way node,
 ```
@@ -23,23 +17,36 @@ $ cd ~
 $ singularity build rnaseq_pipeline.0.3.1.sif \
               docker://dynacomkobe/biodocker_rnaseq_pipeline:ver.0.3.1
 ```
-If you get a message,
+Instration success if you get a message,
 ```
 INFO:    Build complete: rnaseq_pipeline.0.3.1.sif
 ```
-and "rnaseq_pipeline.0.3.1.sif" is created in home directory.<br>
+ and "rnaseq_pipeline.0.3.1.sif" is created in home directory.<br>
 <br>
 Next, You can get shell script "rnaseq-pipeline.sh" from this repository and upload to your home directory.<br>
-## Test
 
-1. test
-2. test
-3. test
+## Usage
+1. make a working directory like below.
+```
+$HOME/[working directory name]/data/org/[Your RNA-seq data(fastq gziped)]
+```
+2. Edit "rnaseq-pipeline.sh".(write working directory)
+```
+export _JAVA_OPTIONS="-Xmx1g"
+singularity exec -B $HOME/<i>[working directory name]</i>C:/work \
+                 $HOME/rnaseq_pipeline.0.3.1.sif /singularity \
+                 -m UMI -l 100 -u 10 -c 16 -r Osa
+```
+3. Submit the script to the que.
+```
+$ cd ~
+$ qsub rnaseq-pipeline.sh
+```
 
 ## Author
 
-CHIGIRA Koki
-mail to: kyoujin2009kutar(at_mark)gmail.com
+CHIGIRA Koki<br>
+mail to: kyoujin2009kutar(at_mark)gmail.com<br>
 \*at_mark have to be replaved to "@"
 
 ## License
